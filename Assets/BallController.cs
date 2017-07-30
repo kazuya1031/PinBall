@@ -21,14 +21,15 @@ public class BallController : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag ("LargeStarTag")) {
-			score = +20;
+			score += 20;
 		} else if (other.gameObject.CompareTag ("LargeCloudTag")) {
-			score = +15;
+			score += 15;
 		} else if (other.gameObject.CompareTag ("SmallCloudTag")) {
-			score = +5;
+			score += 5;
 		} else if (other.gameObject.CompareTag ("SmallStarTag")) {
-			score = +10;
+			score += 10;
 		}
+		this.scoreText.GetComponent<Text> ().text = "Score" + score.ToString();
 	}
 
 
@@ -51,7 +52,7 @@ public class BallController : MonoBehaviour {
 			this.gameoverText.GetComponent<Text> ().text = "Game Over";
 		}
 
-		this.scoreText.GetComponent<Text> ().text = "Score" + score.ToString();
+
 
 
 	}
